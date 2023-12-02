@@ -15,9 +15,9 @@ values:
   replicas: 1
   resources:
     ignoreLimits: true
-  existingSecrets:
+  existingFileSecrets:
     - name: temporal-expressjs-test-app-worker-mtls-certificate
-      optional: false
+      path: /etc/tls/temporal
 manifests: |
   ---
   apiVersion: temporal.io/v1beta1
