@@ -15,26 +15,3 @@ values:
   replicas: 1
   resources:
     ignoreLimits: true
----
-apiVersion: temporal.io/v1beta1
-kind: TemporalNamespace
-metadata:
-  name: test
-  namespace: test-app
-spec:
-  clusterRef:
-    name: temporal
-    namespace: temporal-cluster
-  description: Namespace for the test app
-  retentionPeriod: 168h #7 days
-  allowDeletion: true
----
-apiVersion: temporal.io/v1beta1
-kind: TemporalClusterClient
-metadata:
-  name: my-worker
-  namespace: test-app
-spec:
-  clusterRef:
-    name: temporal
-    namespace: temporal-cluster
