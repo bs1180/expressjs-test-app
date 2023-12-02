@@ -15,3 +15,6 @@ values:
   replicas: 1
   resources:
     ignoreLimits: true
+  existingSecrets:
+    - name: temporal-temporal-worker-mtls-certificate
+      optional: false
