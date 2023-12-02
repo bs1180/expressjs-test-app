@@ -18,3 +18,28 @@ values:
   existingSecrets:
     - name: temporal-temporal-worker-mtls-certificate
       optional: false
+manifests: |
+  ---
+  apiVersion: temporal.io/v1beta1
+  kind: TemporalNamespace
+  metadata:
+    name: expressjs-test-app
+    namespace: default
+  spec:
+    clusterRef:
+      name: temporal
+      namespace: temporal-cluster
+    description: Namespace for the test app
+    retentionPeriod: 168h #7 days
+    allowDeletion: true
+  ---
+  apiVersion: temporal.io/v1beta1
+  kind: TemporalClusterClient
+  metadata:
+    name: expressjs-test-app-worker
+    namespace: default
+  spec:
+    clusterRef:
+      name: temporal
+      namespace: temporal-cluster
+
