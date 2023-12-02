@@ -16,7 +16,7 @@ values:
   resources:
     ignoreLimits: true
   existingSecrets:
-    - name: temporal-temporal-worker-mtls-certificate
+    - name: temporal-expressjs-test-app-worker-mtls-certificate
       optional: false
 manifests: |
   ---
